@@ -1,9 +1,13 @@
 .img {
     display: block;
-    margin-top: 3rem;
+    margin-top: 0rem;
     margin-left: 3rem;
     margin-right: 3rem;
     margin-bottom: 3rem;
     width: 30rem;
+    scale: 0.9;
+}
 
-  }
+.home-card {
+  padding-bottom: 2.4rem;
+}

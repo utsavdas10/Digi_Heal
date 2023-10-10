@@ -25,12 +25,12 @@ function App() {
     routes = (
       <Switch>
         <Route path="/" exact> <Home /> </Route>
-        <Route path="/auth"> <Auth /> </Route>
         <Route path="/workouts"> <Workouts /> </Route>
         <Route path="/login"> <Login /> </Route>
         <Route path="/metrics"> <Metrics /> </Route>
         <Route path="/progress"> <Progress /> </Route>
         <Route path="/nutrition"> <Nutritions /> </Route>
+        <Redirect to="/" />
       </Switch>
     );
   } 
@@ -38,6 +38,7 @@ function App() {
     routes = (
       <Switch>
         <Route path="/" exact> <Home /> </Route>
+        <Route path="/auth"> <Auth /> </Route>
         <Redirect to="/" />
       </Switch>
     );
