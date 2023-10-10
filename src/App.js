@@ -12,8 +12,8 @@ import Home from './Home/Home';
 import Workouts from './Workouts/Workouts';
 import Metrics from './Metrics/Metrics';
 import Progress from './Progress/Progress';
-import Nutritions from './Nutrition/Nutritions';
-
+import Nutritions from './Nutritions/Nutritions';
+import Login from './components/login';
 import { AuthContext } from './shared/context/auth-context';
 import { useAuth } from './shared/components/hooks/auth-hook';
 
@@ -27,10 +27,10 @@ function App() {
         <Route path="/" exact> <Home /> </Route>
         <Route path="/auth"> <Auth /> </Route>
         <Route path="/workouts"> <Workouts /> </Route>
+        <Route path="/login"> <Login /> </Route>
         <Route path="/metrics"> <Metrics /> </Route>
         <Route path="/progress"> <Progress /> </Route>
         <Route path="/nutrition"> <Nutritions /> </Route>
-        <Redirect to="/" />
       </Switch>
     );
   } 

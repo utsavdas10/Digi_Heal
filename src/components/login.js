@@ -1,13 +1,11 @@
 import React from 'react';
 import Navbar from '../components/navbar';
-import Card from '../components/card';
-import "./Home.css"
-const Home = () => {
+const Login = () => {
     return (
         <div>
-            <Card />
+            <Navbar />
         </div>
     );
 };
 
-export default Home;
+export default Login;
