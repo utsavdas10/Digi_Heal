@@ -6,7 +6,7 @@ import Home_img from '../Home/Home_img.png'
 import "./card.css"
 export default function Card() {
     return (
-      <div >
+      <div className="mt-20">
         <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-10 lg:px-8">
           <div className="home-card relative isolate overflow-hidden bg-orange-900/90 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
