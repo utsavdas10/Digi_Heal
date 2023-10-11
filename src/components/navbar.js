@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
   ArrowPathIcon,
@@ -37,7 +38,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1 "> 
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -52,18 +53,21 @@ export default function Navbar() {
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
-            Features
+            Profile
+          </a>
+          <div  className="text-xl font-semibold leading-6 text-gray-900">
+          <Link to="/metrics">Metrics</Link>
+          </div>
+          <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
+            Nutritions
           </a>
           <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
-            Marketplace
+            Workouts
           </a>
           <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
-            Company
+            Progress
           </a>
-          <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
-            Company
-          </a>
-        </Popover.Group>
+                  </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
             Log in <span aria-hidden="true">&rarr;</span>
