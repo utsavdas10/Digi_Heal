@@ -13,7 +13,6 @@ import Workouts from './Workouts/Workouts';
 import Metrics from './Metrics/Metrics';
 import Progress from './Progress/Progress';
 import Nutritions from './Nutritions/Nutritions';
-import Login from './components/login';
 import Home2 from './Home2/Home2'
 import { AuthContext } from './shared/context/auth-context';
 import { useAuth } from './shared/components/hooks/auth-hook';
@@ -25,9 +24,12 @@ function App() {
   if (token) {
     routes = (
       <Switch>
-        <Route path="/" exact> <Home /> </Route>
-        
-        <Redirect to="/" />
+        <Route path="/home2"> <Home2 /> </Route>
+        <Route path="/workouts"> <Workouts /> </Route>
+        <Route path="/metrics"> <Metrics /> </Route>
+        <Route path="/progress"> <Progress /> </Route>
+        <Route path="/nutrition"> <Nutritions /> </Route>
+        <Redirect to="/home2" />
       </Switch>
     );
   } 
@@ -35,7 +37,7 @@ function App() {
     routes = (
       <Switch>
         <Route path="/" exact> <Home /> </Route>
-        <Route path="/login"> <Login /> </Route>
+        <Route path="/auth"> <Auth /> </Route>
         <Route path="/home2"> <Home2 /> </Route>
         <Route path="/workouts"> <Workouts /> </Route>
         <Route path="/metrics"> <Metrics /> </Route>
