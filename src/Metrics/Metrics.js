@@ -3,6 +3,7 @@ import Navbar from '../components/navbar';
 import height from "./height.png"
 import weight from "./weight.png"
 import blood_pressure from "./blood_pressure.png"
+import cholesterol from "./cholesterol.png"
 import "./Metrics.css"
 const features = [
     { id:0 ,name: 'Height', description: 'Designed by Good Goods, Inc.' },
@@ -140,7 +141,7 @@ const Metrics = () => {
               onClick={() => handleImageClick(2)}
             />
             <img
-              src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg"
+              src={cholesterol}
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
               className="rounded-lg bg-gray-100"
               onClick={() => handleImageClick(3)}
