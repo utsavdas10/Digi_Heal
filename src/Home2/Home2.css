@@ -1,0 +1,32 @@
+.pg{
+    width: 50rem;
+    height: 60rem;
+    margin:auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    border: 1px solid black;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #6a470a, #cf9530b9);
+    transition: transform 0.2s ease;
+}
+.pg:hover{
+    transform: translateY(-5px);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2), 0 16px 32px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.courosel{
+    width: 90rem;
+}
+.slider {
+    width: 100%;
+    height: 100%;
+  }
+.slid{
+    margin-top: 2rem;
+    margin-right: 2rem;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
