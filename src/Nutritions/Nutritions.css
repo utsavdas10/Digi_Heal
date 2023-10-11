@@ -1,0 +1,15 @@
+.img {
+    display: block;
+ 
+    width: 30rem;
+    scale: 0.9;
+}
+
+.home-card {
+  padding-bottom: 2.4rem;
+}
+.list{
+    width: 70rem;
+    margin: auto;
+    margin-bottom: 5rem;
+}

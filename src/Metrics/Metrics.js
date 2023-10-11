@@ -24,10 +24,11 @@ const Metrics = () => {
       <Navbar />
       <div className="card ml-20 mr-20 mt-10 mb-20 home-card relative isolate overflow-hidden bg-orange-900/90 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
         <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Metrics</h2>
+          <div className=''>
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-7xl">Metrics</h2>
             <p className="mt-4 text-white">
-              Here are your current Health Metrics!!!!
+              Tap on the images to learn more about the metrics we track.
+              
             </p>
 
             <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
@@ -125,25 +126,25 @@ const Metrics = () => {
             <img
               src={height}
               alt="Walnut card tray with white powder coated steel divider and 3 punchout holes."
-              className="rounded-lg bg-gray-100"
+              className="img_bttn rounded-lg bg-gray-100"
               onClick={() => handleImageClick(0)}
             />
             <img
               src={weight}
               alt="Top down view of walnut card tray with embedded magnets and card groove."
-              className="rounded-lg bg-gray-100"
+              className="img_bttn rounded-lg bg-gray-100"
               onClick={() => handleImageClick(1)}
             />
             <img
               src={blood_pressure}
               alt="Side of walnut card tray with card groove and recessed card area."
-              className="rounded-lg bg-gray-100"
+              className="img_bttn rounded-lg bg-gray-100"
               onClick={() => handleImageClick(2)}
             />
             <img
               src={cholesterol}
               alt="Walnut card tray filled with cards and card angled in dedicated groove."
-              className="rounded-lg bg-gray-100"
+              className="img_bttn rounded-lg bg-gray-100"
               onClick={() => handleImageClick(3)}
             />
           </div>
