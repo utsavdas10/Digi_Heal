@@ -11,6 +11,7 @@ const Home2 = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [ loadedUser, setLoadedUser ] = useState([]);
+  const [ extra, setExtra ] = useState([]);
     const auth = useContext(AuthContext);
     console.log(auth.userId);
     
@@ -26,9 +27,18 @@ const Home2 = () => {
         } catch (err) {
           console.log(err);
         }
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:8000/api/functional/${auth.userId}/health-metrics`
+          );
+          setExtra(responseData.health_metrics[0]);
+          console.log(responseData.health_metrics[0]);
+        } catch (err) {
+          console.log(err);
+        }
       }
        
-        fetchUser();
+      fetchUser();
       
     }
     , []);
@@ -62,11 +72,11 @@ const Home2 = () => {
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Height</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">5.5</dd>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">{extra.height} ft</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Weight</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">56 kg</dd>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">{extra.height} kg</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Email address</dt>
