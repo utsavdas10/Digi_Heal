@@ -20,7 +20,6 @@ import { useAuth } from './shared/components/hooks/auth-hook';
 function App() {
   const { token, login, logout, userId } = useAuth();
   let routes;
-
   if (token) {
     routes = (
       <Switch>
@@ -38,11 +37,6 @@ function App() {
       <Switch>
         <Route path="/" exact> <Home /> </Route>
         <Route path="/auth"> <Auth /> </Route>
-        <Route path="/home2"> <Home2 /> </Route>
-        <Route path="/workouts"> <Workouts /> </Route>
-        <Route path="/metrics"> <Metrics /> </Route>
-        <Route path="/progress"> <Progress /> </Route>
-        <Route path="/nutrition"> <Nutritions /> </Route>
         <Redirect to="/" />
       </Switch>
     );

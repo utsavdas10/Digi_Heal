@@ -8,11 +8,13 @@ import './Home2.css';
 
 
 const Home2 = () => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+  const [ loadedUser, setLoadedUser ] = useState([]);
     const auth = useContext(AuthContext);
-    const { isLoading, error, sendRequest, clearError } = useHttpClient();
-
-    const [ loadedUser, setLoadedUser ] = useState();
-
+    console.log(auth.userId);
+    
+    
     useEffect(() => {
       const fetchUser = async () => {
         try {
@@ -21,11 +23,16 @@ const Home2 = () => {
           );
           setLoadedUser(responseData.user);
           console.log(responseData.user);
-        } catch (err) {}
+        } catch (err) {
+          console.log(err);
+        }
       }
-      fetchUser();
+       
+        fetchUser();
+      
     }
-    , [sendRequest, auth.userId]);
+    , []);
+    // console.log(loadedUser);
 
     return (
         <div>
@@ -43,7 +50,7 @@ const Home2 = () => {
         <dl className="divide-y divide-gray-100">
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Full name</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">Margot Foster</dd>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">{loadedUser.name}</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Sex</dt>
@@ -51,11 +58,11 @@ const Home2 = () => {
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Age</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">20</dd>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">{loadedUser.age}</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Height</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">5.5 feet</dd>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">5.5</dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Weight</dt>
@@ -63,7 +70,7 @@ const Home2 = () => {
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 headtext texts">Email address</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">margotfoster@example.com</dd>
+            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 texts2">{loadedUser.email}</dd>
           </div>
           </dl>
         </div>
