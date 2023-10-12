@@ -1,10 +1,31 @@
-import {React, useContext} from 'react';
+import {React, useContext, useEffect, useState} from 'react';
 import Navbar from '../components/navbar';
+import { AuthContext } from '../shared/context/auth-context';
+import { useHttpClient } from '../shared/components/hooks/http-hook';
+
 
 import './Home2.css';
 
 
 const Home2 = () => {
+    const auth = useContext(AuthContext);
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+    const [ loadedUser, setLoadedUser ] = useState();
+
+    useEffect(() => {
+      const fetchUser = async () => {
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:8000/api/functional/${auth.userId}`
+          );
+          setLoadedUser(responseData.user);
+          console.log(responseData.user);
+        } catch (err) {}
+      }
+      fetchUser();
+    }
+    , [sendRequest, auth.userId]);
 
     return (
         <div>
