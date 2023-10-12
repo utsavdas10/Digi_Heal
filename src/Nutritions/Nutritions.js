@@ -1,17 +1,38 @@
 import React from "react";
-import { Fragment, useState,useRef } from 'react'
+import { Fragment, useState,useRef, useContext, useEffect  } from 'react'
 import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import nutrition from "./nutrition.png"
 import "./Nutritions.css"
 import Modal from "../components/modal";
 import Lists from "../components/lists";
+import { AuthContext } from '../shared/context/auth-context';
+import { useHttpClient } from '../shared/components/hooks/http-hook';
 const Nutritions = () => {
+    const auth = useContext(AuthContext);
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
+    const [nutritions, setNutritions] = useState({});
     const [open, setOpen] = useState(false)
     const cancelButtonRef = useRef(null)
     const handleAdd = () => {
         setOpen(true)
     }
+
+    useEffect(() => {
+      const fetchNutri = async () => {
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:8000/api/functional/${auth.userId}/nutrition-data`
+          );
+          setNutritions(responseData.nutrition_data[0]);
+          console.log(nutritions);
+        } catch (err) {}
+      }
+      fetchNutri();
+    }
+    , [sendRequest, auth.userId]);
+
     return (
         <div>
             <Navbar />

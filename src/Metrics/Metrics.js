@@ -1,9 +1,11 @@
-import {React, useState} from 'react';
+import {React, useEffect, useState, useContext} from 'react';
 import Navbar from '../components/navbar';
 import height from "./height.png"
 import weight from "./weight.png"
 import blood_pressure from "./blood_pressure.png"
 import cholesterol from "./cholesterol.png"
+import { AuthContext } from '../shared/context/auth-context';
+import { useHttpClient } from '../shared/components/hooks/http-hook';
 import "./Metrics.css"
 const features = [
     { id:0 ,name: 'Height', description: 'Designed by Good Goods, Inc.' },
@@ -12,6 +14,9 @@ const features = [
     { id:3,name: 'Cholesterol', description: 'Hand sanded and finished with natural oil' },
   ]
 const Metrics = () => {
+    const auth = useContext(AuthContext);
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
+    const [ metrics, setMetrics ] = useState({});
     const [expanded, setExpanded] = useState(false);
     const handleImageClick = (id) => {
       setExpanded((prevState) => ({
@@ -19,6 +24,21 @@ const Metrics = () => {
         [id]: !prevState[id],
       }));
     };
+
+    useEffect(() => {
+      const fetchMetrics = async () => {
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:8000/api/functional/${auth.userId}/health-metrics`
+          );
+          setMetrics(responseData.health_metrics[0]);
+          console.log(metrics);
+        } catch (err) {}
+      }
+      fetchMetrics();
+    }
+    , [sendRequest, auth.userId]);
+
     return (
       <div>
       <Navbar />
