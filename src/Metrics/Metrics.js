@@ -32,12 +32,12 @@ const Metrics = () => {
             `http://localhost:8000/api/functional/${auth.userId}/health-metrics`
           );
           setMetrics(responseData.health_metrics[0]);
-          console.log(metrics);
+          console.log(responseData.health_metrics[0]);
         } catch (err) {}
       }
       fetchMetrics();
     }
-    , [sendRequest, auth.userId]);
+    , []);
 
     return (
       <div>
@@ -71,7 +71,7 @@ const Metrics = () => {
                   {features[0].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {features[0].description}
+                  {metrics.height}
                 </dd>
               </div>
               <div
@@ -93,7 +93,7 @@ const Metrics = () => {
                   {features[1].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {features[1].description}
+                  {metrics.weight}
                 </dd>
               </div>
               <div
@@ -115,7 +115,7 @@ const Metrics = () => {
                   {features[2].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {features[2].description}
+                  {metrics.bp}
                 </dd>
               </div>
               <div
@@ -137,7 +137,7 @@ const Metrics = () => {
                   {features[3].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {features[3].description}
+                  {metrics.cholesterol}
                 </dd>
               </div>
             </dl>

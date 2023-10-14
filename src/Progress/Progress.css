@@ -1,0 +1,8 @@
+.curprog{
+    width: 30rem;
+    height: 30rem;
+    background-color: #af7f069a;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}

@@ -61,12 +61,13 @@ export default function Navbar() {
           <div  className="text-xl font-semibold leading-6 text-gray-900">
           <Link to="/nutrition">Nutritions</Link>
           </div>
-          <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
-            Workouts
-          </a>
-          <a href="#" className="text-xl font-semibold leading-6 text-gray-900">
-            Progress
-          </a>
+          <div  className="text-xl font-semibold leading-6 text-gray-900">
+          <Link to="/workouts">Workouts</Link>
+          </div>
+          <div  className="text-xl font-semibold leading-6 text-gray-900">
+          <Link to="/progress">Progress</Link>
+          </div>
+          
                   </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-xl font-semibold leading-6 text-gray-900">

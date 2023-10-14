@@ -19,19 +19,19 @@ const Nutritions = () => {
         setOpen(true)
     }
 
-    useEffect(() => {
-      const fetchNutri = async () => {
-        try {
-          const responseData = await sendRequest(
-            `http://localhost:8000/api/functional/${auth.userId}/nutrition-data`
-          );
-          setNutritions(responseData.nutrition_data[0]);
-          console.log(nutritions);
-        } catch (err) {}
-      }
-      fetchNutri();
-    }
-    , [sendRequest, auth.userId]);
+    // useEffect(() => {
+    //   const fetchNutri = async () => {
+    //     try {
+    //       const responseData = await sendRequest(
+    //         `http://localhost:8000/api/functional/${auth.userId}/nutrition-data`
+    //       );
+    //       setNutritions(responseData.nutrition_data[0]);
+    //       console.log(nutritions);
+    //     } catch (err) {}
+    //   }
+    //   fetchNutri();
+    // }
+    // , []);
 
     return (
         <div>
