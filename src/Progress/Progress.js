@@ -16,7 +16,7 @@ import 'react-circular-progressbar/dist/styles.css';
 const Progress = () => {
     const auth = useContext(AuthContext);
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
     const [open, setOpen] = useState(false)
     const cancelButtonRef = useRef(null)
     const [percentage, setPercentage] = useState(0)
@@ -36,17 +36,26 @@ const Progress = () => {
             `http://localhost:8000/api/functional/${auth.userId}/progress`
           );
           setData(responseData.progress[0]);
-          console.log(responseData.progress[0]);
+          setPercentage((responseData.progress[0].current/responseData.progress[0].goal)*100);
         } catch (err) {}
       }
       fetchData();
     }
-    , []);
-    useEffect(() => {
-      setPercentage(data.current/data.goal*100);
-    }, []);
-    console.log("hello");
-    console.log(percentage);
+    , [sendRequest]);
+
+    const refresh = () => {
+      const fetchData = async () => {
+        try {
+          const responseData = await sendRequest(
+            `http://localhost:8000/api/functional/${auth.userId}/progress`
+          );
+          setData(responseData.progress[0]);
+          setPercentage((responseData.progress[0].current/responseData.progress[0].goal)*100);
+        } catch (err) {}
+      }
+      fetchData();
+    }
+    
 
   return (
     <div>
@@ -120,11 +129,11 @@ const Progress = () => {
                     <div className="curprog overflow-hidden h-32 w-32 mb-4 flex rounded-full bg-orange-500">
                       <VisibilitySensor>
                     {({ isVisible }) => { 
-                      const percentage = isVisible ? 90 : 0;
+                      const per = isVisible ? percentage : 0;
                       return (
                         <CircularProgressbar
-                          value={percentage}
-                          text={`${percentage}%`}
+                          value={per}
+                          text={`${per}%`}
                         />
                       );
                     }}
@@ -139,7 +148,7 @@ const Progress = () => {
               <div  className="inline-block rounded-md border border-transparent bg-orange-900/90 px-8 py-3 text-center font-medium text-white hover:bg-orange-700"
               onClick={handleAdd1}>
               Update Current Progress
-              <ModalProg2 open1={open1} setOpen1={setOpen1} cancelButtonRef1={cancelButtonRef1}/>
+              <ModalProg2 open1={open1} setOpen1={setOpen1} cancelButtonRef1={cancelButtonRef1} refresh = {refresh}/>
               </div>
             </div>
           </div>

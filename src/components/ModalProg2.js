@@ -26,7 +26,7 @@ export default function ModalProg2(props) {
             }
         )
         console.log(responseData);
-
+        props.refresh();
     }
     catch(err) {
         console.log(err);
