@@ -71,7 +71,7 @@ const Metrics = () => {
                   {features[0].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {metrics.height}
+                  {metrics.height} ft
                 </dd>
               </div>
               <div
@@ -93,7 +93,7 @@ const Metrics = () => {
                   {features[1].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {metrics.weight}
+                  {metrics.weight} kg
                 </dd>
               </div>
               <div
@@ -115,7 +115,7 @@ const Metrics = () => {
                   {features[2].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {metrics.bp}
+                  {metrics.bp} mmHg
                 </dd>
               </div>
               <div
@@ -137,7 +137,7 @@ const Metrics = () => {
                   {features[3].name}
                 </dt>
                 <dd className="mt-2 text-sm text-white-500">
-                  {metrics.cholesterol}
+                  {metrics.cholesterol} mg/dL
                 </dd>
               </div>
             </dl>

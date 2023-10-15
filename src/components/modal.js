@@ -1,10 +1,14 @@
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useRef, useState,useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-
+import { AuthContext } from '../shared/context/auth-context';
+import { useHttpClient } from '../shared/components/hooks/http-hook';
 export default function Modal(props) {
+    const auth = useContext(AuthContext);
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
     const [name, setName] = useState('')
     const [calories, setCalories] = useState('')
+    const [refresh, setRefresh] = useState(0)
     const [date, setDate] = useState('')
     const handleNameChange = (e) => {
         setName(e.target.value)
@@ -16,6 +20,32 @@ export default function Modal(props) {
     const handleDateChange = (e) => {
         setDate(e.target.value)
         console.log(date)
+    }
+    const handleAdd = async() => {
+      try {
+        const responseData = await sendRequest(
+            "http://localhost:8000/api/functional/nutrition-data",
+            "POST",
+            JSON.stringify({
+                email: auth.userId,
+                food: name,
+                calories: calories,
+                date_time: date
+                
+            }),
+            {
+                "Content-Type": "application/json"
+            }
+        )
+        console.log(responseData);
+        setRefresh(refresh+1)
+        localStorage.setItem('refresh', refresh);
+
+    }
+    catch(err) {
+        console.log(err);
+    }
+        props.setOpen(false)
     }
 
   return (
@@ -96,7 +126,7 @@ export default function Modal(props) {
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                    onClick={() => props.setOpen(false)}
+                    onClick={handleAdd}
                   >
                     Add
                   </button>

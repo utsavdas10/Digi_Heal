@@ -10,9 +10,13 @@ import VisibilitySensor from "react-visibility-sensor";
 import progress from "./Progress.png"
 import { AuthContext } from '../shared/context/auth-context';
 import { useHttpClient } from '../shared/components/hooks/http-hook';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbar,buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
+// const stats = [
+//   { id: 1, name: 'Total Goal' },
+//   { id: 2, name: 'Current Progress' },
+//   { id: 3, name: 'Remaining Goal' },
+// ]
 const Progress = () => {
     const auth = useContext(AuthContext);
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -54,8 +58,13 @@ const Progress = () => {
         } catch (err) {}
       }
       fetchData();
+      
     }
-    
+    const stats = [
+      { id: 1, name: 'Total Goal' , value: data.goal},
+      { id: 2, name: 'Current Progress', value: data.current },
+      { id: 3, name: 'Remaining Goal', value: data.remaining_goal },
+    ];
 
   return (
     <div>
@@ -118,6 +127,7 @@ const Progress = () => {
           </div>
           <div>
             <div className="mt-10">
+              
               {/* Decorative image grid */}
               <div
                 aria-hidden="true"
@@ -126,15 +136,26 @@ const Progress = () => {
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                   <div className="flex items-center space-x-6 lg:space-x-8">
                     <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                    <div className="curprog overflow-hidden h-32 w-32 mb-4 flex rounded-full bg-orange-500">
+                    <div className="curprog overflow-hidden h-32 w-32 mb-4 flex rounded-full ">
+                  
                       <VisibilitySensor>
                     {({ isVisible }) => { 
                       const per = isVisible ? percentage : 0;
                       return (
                         <CircularProgressbar
+                        className="mt-8 mb-8 ml-8 mr-8"
                           value={per}
-                          text={`${per}%`}
-                        />
+                          strokeWidth={13}
+                          styles={buildStyles({
+                            pathColor: '#783108',
+                            trailWidth: 8,
+                            trailColor: '#ffb38a',
+                            strokeLinecap: 'round',
+                            pathTransitionDuration: 0.5,
+                          })}
+
+                        >
+                        </CircularProgressbar>
                       );
                     }}
                   </VisibilitySensor>
@@ -150,12 +171,29 @@ const Progress = () => {
               Update Current Progress
               <ModalProg2 open1={open1} setOpen1={setOpen1} cancelButtonRef1={cancelButtonRef1} refresh = {refresh}/>
               </div>
+              
             </div>
           </div>
         </div>
       </div>
     </div>
-
+  <div className=" py-24 sm:py-32">
+      <div className=" mx-auto max-w-7xl px-6 lg:px-8">
+        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3 ">
+          {stats.map((stat) => (
+            <div key={data.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
+              <dd
+                className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl hover:text-7xl transition-all duration-300"
+                style={{ transitionProperty: 'font-size' }}
+              >
+                {stat.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
     </div>
   );
 };

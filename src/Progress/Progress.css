@@ -1,8 +1,19 @@
 .curprog{
-    width: 30rem;
-    height: 30rem;
-    background-color: #af7f069a;
-    border-radius: 5px;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 90%;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom right, #ff8a00, #e2dbde);
+    animation: gradient 5s ease-in-out infinite alternate;
 }
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
