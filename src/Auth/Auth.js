@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import log_img from './log_img.png'
 import LoadingSpinner from "../shared/components/UIElements/LoadingSpinner"
 import Input from "../shared/components/FormElements/Input"
 import Modal from "../shared/components/UIElements/Modal"
@@ -114,10 +114,10 @@ export default function SignInSide() {
         <Grid
           item
           xs={false}
-          sm={4}
+          sm={4 }
           md={7.5}
           sx={{
-            backgroundImage: isLoginMode? 'url(https://cdn.dribbble.com/users/2200056/screenshots/11415019/media/e59d2e1588af14e09632b0f88eeedef1.jpg)': 'url(https://cdn.dribbble.com/users/2200056/screenshots/11415019/media/e59d2e1588af14e09632b0f88eeedef1.jpg)',
+            backgroundImage: isLoginMode? `url(${log_img})` : `url(${log_img})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
