@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+<h1>Digi Heal </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Backend :</h2> <p>https://github.com/utsavdas10/Digi-Heal-Backend </p>
+<h2>Frontend :</h2> <p>https://github.com/utsavdas10/Digi_Heal </p>
+<h2>Project Related Docs :</h2> <p>https://drive.google.com/drive/folders/1fX1IZkOnXRAHRdgkiH15FgKkdelCEHUG?usp=sharing </p>
 
-## Available Scripts
 
-In the project directory, you can run:
+<h1>*NOTE*</h1>
+<p> Project not deployed on the internet due to teh database free tier limitations of the cloud providers. Project has been tested locally as the database is local and not hosted on the cloud. Demo is available on the google drive link above. </p>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>General Description: </h2>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+<p>A website for keeping track of nutrition, workouts, health metrics, and progress, built with Express.js, React.js, and MySQL, can be a valuable tool for anyone who is serious about their health and fitness. It can provide users with the information and tools they need to track their progress, achieve their goals, and stay motivated.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The website should be designed to be simple to use, have an interactive design, be responsive, and secure. Data safety and a hassle-free experience should be top priorities.
+Users should be able to easily track their food intake, calorie intake, and nutritional information. They should also be able to track their workouts, including exercises, sets, reps, and weight. Additionally, users should be able to track their health metrics, such as weight, calories, heart rate, and blood pressure.
 
-### `npm run build`
+The website should also allow users to track their progress over time and set and achieve goals. This can help users stay motivated and on track.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The website should have an interactive design that is easy to use and navigate. It should also be responsive so that it can be used on any device.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Security is also important. The website should use strong encryption and authentication methods to protect user data. Additionally, user data should be stored securely and safely. This includes backing up data regularly and using appropriate security measures to protect against unauthorised access.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Overall, a website for keeping track of nutrition, workouts, health metrics, and progress can be a valuable tool for anyone who is serious about their health and fitness. It can help users track their progress, achieve their goals, and stay motivated. </p>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<h2>Features:</h2>
 
-## Learn More
+<p>
+•	Nutrition tracking: The website should allow users to track their food intake, calorie intake, and nutritional information. This can be done by adding food items to a food diary, scanning food barcodes, or importing data from other food tracking apps. The website should also provide users with access to a database of food items with nutritional information.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+•	Workout tracking: The website should allow users to track their workouts, including exercises, sets, reps, and weight. The website should also provide users with access to a database of exercises with instructions and videos.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+•	Health metrics tracking: The website should allow users to track their health metrics, such as weight, body fat percentage, heart rate, and blood pressure. This can be done by manually entering data or by connecting to wearable devices.
 
-### Code Splitting
+•	Progress tracking: The website should allow users to track their progress over time and set and achieve goals. For example, users could set goals for weight loss, muscle gain, or increasing their cardiovascular fitness. The website should provide users with charts and graphs to visualise their progress.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+</p>
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<h2>Tech Stack: </h2>
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>Backend :  Express Js, NodeJs, MySQL </p>
+<p>Frontend: ReactJS, TailwindCss, MaterialUI</p>
+<p>Database: MySQL</p>
+<p>Testing: Postman</p>
+<p>Others: GitHub, Canva, ImagenAI, MojoAI</p>
